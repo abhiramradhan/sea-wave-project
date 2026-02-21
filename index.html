@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ocean Energy Mission | Abhiram Pradhan</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+
+body{
+    font-family:'Exo 2', sans-serif;
+    background:radial-gradient(circle at 20% 20%, #0f2027, #203a43, #2c5364);
+    color:#e6f7ff;
+    overflow-x:hidden;
+}
+
+/* Moving Particle Background */
+body::before{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#00f0ff 1px, transparent 1px);
+    background-size:50px 50px;
+    animation:moveParticles 60s linear infinite;
+    opacity:0.08;
+    z-index:-1;
+}
+
+@keyframes moveParticles{
+    from{background-position:0 0, 0 0;}
+    to{background-position:1000px 1000px, 500px 500px;}
+}
+
+/* Navigation */
+nav{
+    position:fixed;
+    width:100%;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(12px);
+    padding:12px;
+    text-align:center;
+    z-index:1000;
+}
+
+nav a{
+    color:#00f0ff;
+    margin:8px;
+    text-decoration:none;
+    font-size:13px;
+}
+
+nav a:hover{color:white;}
+
+/* Hero Section */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:42px;
+    font-weight:700;
+    background:linear-gradient(90deg,#00f0ff,#00ffcc);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{margin-top:20px;opacity:0.85;}
+
+/* Earth */
+/* Animated Puri Beach Sphere */
+.earth{
+    width:260px;
+    height:260px;
+    margin:40px auto;
+    border-radius:50%;
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 0 60px rgba(0,255,204,0.8);
+    border:3px solid rgba(0,255,204,0.5);
+}
+
+/* Beach Background */
+.earth::before{
+    content:"";
+    position:absolute;
+    width:200%;
+    height:100%;
+    background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+    background-size:cover;
+    animation:waveMove 20s linear infinite;
+}
+
+/* Moving wave animation */
+@keyframes waveMove{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+}
+
+/* Glowing pulse */
+.earth::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    box-shadow:0 0 40px rgba(0,255,204,0.6);
+    animation:pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse{
+    0%{box-shadow:0 0 30px rgba(0,255,204,0.4);}
+    50%{box-shadow:0 0 80px rgba(0,255,204,1);}
+    100%{box-shadow:0 0 30px rgba(0,255,204,0.4);}
+}frames rotate{
+    from{background-position:0 0;}
+    to{background-position:500px 0;}
+}
+
+/* Energy Counter */
+.counter{
+    font-size:26px;
+    color:#00ffcc;
+    margin-top:20px;
+}
+
+/* Sections */
+section{
+    padding:90px 20px;
+    text-align:center;
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s ease;
+}
+
+section.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+h2{
+    margin-bottom:25px;
+    font-size:26px;
+    color:#00ffcc;
+}
+
+/* Cards */
+.card{
+    max-width:900px;
+    margin:auto;
+    padding:35px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:0 0 25px rgba(0,255,204,0.2);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 40px rgba(0,255,204,0.5);
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:30px;
+    background:#000;
+    color:#00ffcc;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#intro">Intro</a>
+<a href="#objective">Objective</a>
+<a href="#site">Site</a>
+<a href="#working">Working</a>
+<a href="#budget">Budget</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="hero">
+<h1>OCEAN ENERGY MISSION</h1>
+<p>Energy Harvesting from Sea Waves at Puri Sea Beach</p>
+<div class="earth"></div>
+<div class="counter" id="energy">Energy Generated: 0 kW</div>
+</div>
+
+<section id="intro"><h2>1. Introduction</h2>
+<div class="card">This project aims to harness renewable ocean wave energy and convert it into usable electrical power through mechanical transmission and generator systems.</div>
+</section>
+
+<section id="objective"><h2>2. Objective of the Project</h2>
+<div class="card">To design a sustainable, cyclone-resistant ocean wave energy conversion system deployed at Puri Sea Beach, Odisha.</div>
+</section>
+
+<section id="site"><h2>3. Site Selection: Puri Sea Beach</h2>
+<div class="card">Puri Sea Beach is selected due to consistent wave activity, coastal accessibility, renewable energy potential, and grid connectivity options.</div>
+</section>
+
+<section><h2>4. Principle of Operation</h2>
+<div class="card">Wave force → Translational motion → Rotational conversion → Generator → Electricity generation.</div>
+</section>
+
+<section><h2>5. System Design and Components</h2>
+<div class="card">Wave Plate, Steel Rod, Pipe Structure, Gear Mechanism, Generator, Energy Storage Unit.</div>
+</section>
+
+<section id="working"><h2>6. Working of the System</h2>
+<div class="card">Wave motion pushes submerged plate → rod displacement → mechanical transmission → rotational motion → generator produces electricity.</div>
+</section>
+
+<section><h2>7. Safety Measures & Cyclone Protection</h2>
+<div class="card">Corrosion-resistant materials, deep anchoring, reinforced housing, shock absorbers, storm-lock mechanism.</div>
+</section>
+
+<section><h2>8. Energy Loss & Efficiency</h2>
+<div class="card">Mechanical loss ~15%, transmission loss ~10%, generator efficiency ~85%. Estimated overall system efficiency: 65–70%.</div>
+</section>
+
+<section><h2>9. Integration with Existing Power System</h2>
+<div class="card">Generated power → Inverter → Transformer → Connected to coastal grid infrastructure.</div>
+</section>
+
+<section><h2>10. Advantages</h2>
+<div class="card">Renewable source, zero carbon emission, sustainable coastal deployment, long operational life.</div>
+</section>
+
+<section><h2>11. Limitations & Future Scope</h2>
+<div class="card">High installation cost, marine corrosion. Future scope includes AI-based efficiency optimization and modular floating systems.</div>
+</section>
+
+<section><h2>12. Conclusion</h2>
+<div class="card">Ocean wave energy offers a promising sustainable solution for renewable coastal electricity generation.</div>
+</section>
+
+<section id="budget"><h2>13. Overall Budget</h2>
+<div class="card">Prototype Cost: ₹8–12 Lakhs<br>Full Scale Deployment: ₹2–5 Crores (capacity dependent).</div>
+</section>
+
+<section><h2>14. References</h2>
+<div class="card">
+International Renewable Energy Agency (IRENA)<br>
+National Institute of Ocean Technology (NIOT)<br>
+Ocean Wave Energy Research Publications
+</div>
+</section>
+
+<section id="contact"><h2>Project Lead</h2>
+<div class="card">
+Abhiram Pradhan<br>
+Email: pradhanabhiram560@gmail.com<br>
+Renewable Energy Research Concept 2026
+</div>
+</section>
+
+<footer>
+© 2026 Ocean Energy Mission | Designed by Abhiram Pradhan
+</footer>
+
+<script>
+// Scroll Animation
+const sections=document.querySelectorAll("section");
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+if(sec.getBoundingClientRect().top<window.innerHeight-100){
+sec.classList.add("show");
+}
+});
+});
+
+// Live Energy Counter
+let energy=0;
+setInterval(()=>{
+energy+=Math.floor(Math.random()*5);
+document.getElementById("energy").innerText="Energy Generated: "+energy+" kW";
+},1000);
+</script>
+
+</body>
+</html>
